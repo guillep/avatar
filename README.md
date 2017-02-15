@@ -100,6 +100,31 @@ Notice that the delegation proxy captured messages named `instVarAt:`. Delegatio
 
 ### Handlers
 
+Handlers are meta-objects that define what to do when a proxy receives a message. As we saw before a handler can be any object, as soon as it implements de defined `handleMessage:toTarget:` interface. Using different patterns, a handler can then capture messages in different ways:
+
+- *instead* of sending the message to the target
+
+By default, a handler will execute its defined action *instead* of sending the message. For example, a handler could log the received messages but never resend the message to the original object:
+
+```smalltalk
+MyLoggingHandler >> handleMessage: aMessage toTarget: anObject
+    aMessage logCr.
+```
+
+- *before* or *after* the message is sent to the target
+
+To not replace the send to the original object (because for example we would like to keep its behaviour), we need to explicitly resend the message to the target using the `sendTo:` message of the received message. Using this, we could do something *before* the message continues, something *after* it continues.
+
+```smalltalk
+MyLoggingHandler >> handleMessage: aMessage toTarget: anObject
+    | result |
+    ('message: ', aMessage asString) logCr.
+    result := aMessage sendTo: anObject.
+    ('result: ', result asString) logCr.
+    ^ result
+```
+
+
 ## Implementation Details
 
 This forwarding proxy implementation uses doesNotUnderstand: for reasons of simplicity and performance. This implementation has a main drawback: the message #doesNotUnderstand: could not be captured by the library.
