@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "AvTestLogHandler",
+	"category" : "Avatar-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "AvTestLogAndResendHandler",
+	"type" : "normal"
+}

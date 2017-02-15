@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "nil",
+	"category" : "Avatar",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"target",
+		"handler"
+	],
+	"name" : "AvForwardingProxy",
+	"type" : "normal"
+}

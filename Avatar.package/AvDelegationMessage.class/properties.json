@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Avatar",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"message",
+		"proxy",
+		"target",
+		"handler"
+	],
+	"name" : "AvDelegationMessage",
+	"type" : "normal"
+}
