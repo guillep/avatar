@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "",
 	"super" : "Object",
-	"category" : "Avatar",
+	"category" : "Avatar-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [
