@@ -1,0 +1,4 @@
+tests
+setUpTarget
+
+	target := Object

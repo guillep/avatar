@@ -1,11 +1,14 @@
 {
 	"commentStamp" : "",
-	"super" : "AvProxyTestCase",
+	"super" : "TestCase",
 	"category" : "Avatar-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "AvForwardingProxyTest",
+	"instvars" : [
+		"target",
+		"handler"
+	],
+	"name" : "AvProxyTestCase",
 	"type" : "normal"
 }

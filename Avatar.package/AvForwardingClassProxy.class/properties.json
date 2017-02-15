@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "nil",
+	"category" : "Avatar-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"superclass",
+		"methodDictionary",
+		"format",
+		"target",
+		"handler"
+	],
+	"name" : "AvForwardingClassProxy",
+	"type" : "normal"
+}

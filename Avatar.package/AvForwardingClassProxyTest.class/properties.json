@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "AvForwardingProxyTest",
+	"name" : "AvForwardingClassProxyTest",
 	"type" : "normal"
 }

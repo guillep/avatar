@@ -8,6 +8,13 @@ sendTo: anObject
 
 	method := AvDelegationMethodProvider uniqueInstance delegationMethodFor: (target class lookupSelector: message selector).
 
+	method isPrimitive ifTrue: [ 
+		^ MirrorPrimitives
+			withReceiver: target
+			andArguments: message arguments
+			execute: method
+	].
+
 	^ MirrorPrimitives
 		withReceiver: proxy
 		andArguments: message arguments

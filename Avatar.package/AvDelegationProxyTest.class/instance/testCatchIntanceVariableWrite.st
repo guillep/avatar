@@ -1,12 +1,9 @@
 tests
 testCatchIntanceVariableWrite
 
-	| target handler proxy |
 	target := Point new.
 	handler := AvTestLogAndResendHandler new.
-	proxy := AvDelegationProxy target: target handler: handler.
-	
-	proxy setX: 3 setY: 4.
+	self newProxy setX: 3 setY: 4.
 	
 	self assert: handler messages size equals: 3.
 	self assert: handler messages first selector equals: #setX:setY:.
