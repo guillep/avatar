@@ -127,6 +127,10 @@ MyLoggingHandler >> handleMessage: aMessage toTarget: anObject
 
 ## Implementation Details
 
-This forwarding proxy implementation uses doesNotUnderstand: for reasons of simplicity and performance. This implementation has a main drawback: the message #doesNotUnderstand: could not be captured by the library.
+Avatar uses `doesNotUnderstand:` for reasons of simplicity and performance. This implementation has a main drawback: `doesNotUnderstand:` cannot be captured by the library.
 
-The alternative could have used  cannotInterpret. This would have required a bit more complexity in the implementation, but the main point is that cannotInterpret: is not optimized in the VM JIT, thus it provokes a considerable loss of performance.
+Alternatively, we could have implemented it with `cannotInterpret:`. This would have required a bit more complexity in the implementation, but the main point is that cannotInterpret: is not optimized in the VM JIT, thus it provokes a considerable loss of performance.
+
+## Inspirations and Acknowledgements
+
+Avatar is based in previous research from M.M.Peck, C. Teruel, their first implementation of Ghost and the continuation of this work by D. Kudriashov.
