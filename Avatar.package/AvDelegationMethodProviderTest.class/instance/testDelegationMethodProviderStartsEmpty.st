@@ -1,0 +1,4 @@
+tests
+testDelegationMethodProviderStartsEmpty
+
+	self assert: AvDelegationMethodProvider new isEmpty.

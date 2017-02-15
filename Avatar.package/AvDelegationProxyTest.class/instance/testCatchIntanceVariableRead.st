@@ -4,7 +4,7 @@ testCatchIntanceVariableRead
 	| target handler proxy |
 	target := Point new.
 	handler := AvTestLogAndResendHandler new.
-	proxy := AvForwardingProxy target: target handler: handler.
+	proxy := AvDelegationProxy target: target handler: handler.
 	
 	proxy x.
 	

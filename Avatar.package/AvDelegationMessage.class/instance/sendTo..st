@@ -6,7 +6,8 @@ sendTo: anObject
 		^ proxy perform: message selector withArguments: message arguments.
 	].
 
-	method := target class lookupSelector: message selector.
+	method := AvDelegationMethodProvider uniqueInstance delegationMethodFor: (target class lookupSelector: message selector).
+
 	^ MirrorPrimitives
 		withReceiver: proxy
 		andArguments: message arguments
