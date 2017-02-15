@@ -3,12 +3,12 @@ sendTo: anObject
 
 	| method |
 	anObject == target ifFalse: [
-		^ proxy perform: message selector withArguments: message arguments.
+		^ anObject perform: message selector withArguments: message arguments.
 	].
 
 	method := AvDelegationMethodProvider uniqueInstance delegationMethodFor: (target class lookupSelector: message selector).
 
-	method isPrimitive ifTrue: [ 
+	(self shouldExecuteOnTarget: method) ifTrue: [ 
 		^ MirrorPrimitives
 			withReceiver: target
 			andArguments: message arguments

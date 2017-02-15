@@ -1,4 +1,4 @@
 tests
 newProxy
 
-	^ AvForwardingClassProxy target: target handler: handler
+	^ AvForwardingProxy target: target handler: handler

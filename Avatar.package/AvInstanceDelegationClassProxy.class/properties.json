@@ -12,6 +12,6 @@
 		"target",
 		"handler"
 	],
-	"name" : "AvDelegationClassProxy",
+	"name" : "AvInstanceDelegationClassProxy",
 	"type" : "normal"
 }

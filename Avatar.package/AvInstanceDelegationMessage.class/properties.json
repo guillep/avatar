@@ -1,17 +1,17 @@
 {
 	"commentStamp" : "",
-	"super" : "nil",
+	"super" : "Object",
 	"category" : "Avatar-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"superclass",
-		"methodDictionary",
-		"format",
+		"message",
+		"proxy",
 		"target",
-		"handler"
+		"handler",
+		"instance"
 	],
-	"name" : "AvForwardingClassProxy",
+	"name" : "AvInstanceDelegationMessage",
 	"type" : "normal"
 }

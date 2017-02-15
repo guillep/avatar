@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "AvProxyTestCase",
+	"category" : "Avatar-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "AvInstanceDelegationProxyClassTest",
+	"type" : "normal"
+}
