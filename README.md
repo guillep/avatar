@@ -14,7 +14,7 @@ Avatar provides pre-made forwarding and delegation proxy implementations that wo
 
 Let's imagine we want to create a proxy logging all the interactions with a particular object. This means that we require to create a proxy with a logging handler. An avatar handle is any object that understands the message: `handleMessage: aMessage toTarget: anObject`. To implement our logging handler we need to define a new handler class:
 
-```
+```smalltalk
 Object subclass: #MyLoggingHandler
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -23,7 +23,7 @@ Object subclass: #MyLoggingHandler
 
 And put in it a `handleMessage: aMessage toTarget: anObject` method:
 
-```
+```smalltalk
 MyLoggingHandler >> handleMessage: aMessage toTarget: anObject
     aMessage logCr.
     aMessage sendTo: anObject.
@@ -33,17 +33,24 @@ In such a manner, our handler will log the message into the `Transcript`, and th
 
 We can create a proxy using this handler as follows:
 
-```
+```smalltalk
 proxy := AvForwardingProxy target: MyObject new handler: MyLoggingHandler new.
 proxy yourself.
-proxy isNil.
+proxy = true.
 ```
 
-## Kind of Proxies
+And see that the output of our Transcript will say:
 
-### Forwarding Proxies
+```
+yourself
+= true
+```
 
-A forwarding proxy is a non-reentrant proxy. This means that messages dispatched from the forwarding proxy do not pass any more through the forwarding proxy. Let's consider for example the following method:
+We used in this example a forwarding proxy. More about them follows in next sections.
+
+### 1 . Forwarding Proxies
+
+A forwarding proxy is a non-reentrant proxy. This means that messages dispatched from the forwarding proxy do not pass any more through the forwarding proxy. Let's consider for example the following method in class `Rectangle`:
 
 ```smalltalk
 Rectangle>>area
@@ -52,22 +59,46 @@ Rectangle>>area
 
 If we create a forwarding proxy of a rectangle and we call area on it, the forwarding proxy will catch **only** the area message. Height and width messages are dispatched directly to the rectangle and the proxy is not used anymore from that point on.
 
-#### Usage
-
-To create a forwarding proxy, use the following expression.
-
-```
-proxy := AvForwardingProxy target: objectToProxy handler: handlerObject.
+```smalltalk
+proxy := AvForwardingProxy target: Rectangle new handler: MyLoggingHandler new.
+proxy area.
 ```
 
-The target is the object that will be represented by the proxy.
-The handler is an object that describes what to do when a message is captured. See more on handlers in the AvHandler class.
+This will output in the `Transcript`:
 
-Once a proxy is created, you can use it normally as any other object:
+```
+area
+```
 
-proxy yourself.
-proxy + 2.
-proxy someKeywordMessage: #true.
+### 2 . Delegation Proxies
+
+A delegation proxy is a reentrant proxy. This means that messages dispatched from the delegation proxy will pass through the delegation proxy too. Let's consider for example the following method in class `Rectangle`:
+
+```smalltalk
+Rectangle>>area
+  ^  self height * self width
+```
+
+If we create a delegation proxy of a rectangle and we call area on it, the delegation proxy will catch the area message and all other messages sent to self such as `height` and `width`.
+
+```smalltalk
+proxy := AvDelegationProxy target: Rectangle new handler: MyLoggingHandler new.
+proxy area.
+```
+
+This will output in the `Transcript`:
+
+```
+area
+height
+instVarAt: 1
+width
+instVarAt: 2
+```
+
+Notice that the delegation proxy captured messages named `instVarAt:`. Delegation proxies capture all interactions with the object, even read and write accesses to instance variables in the object. In case we would like to ignore these messages, we could do it by changing the behaviour of our handler. We discuss further about it in the handlers section.
+
+### Handlers
 
 ## Implementation Details
 
