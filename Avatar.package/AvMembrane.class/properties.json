@@ -1,0 +1,18 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Avatar-Handlers",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"dryObjects",
+		"wetObjects",
+		"objectToProxy",
+		"wetToDry",
+		"dryToWet",
+		"crossHandler"
+	],
+	"name" : "AvMembrane",
+	"type" : "normal"
+}

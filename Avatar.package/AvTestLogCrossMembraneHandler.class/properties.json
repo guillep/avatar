@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "Avatar-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"dryToWetMessages",
+		"wetToDryMessages"
+	],
+	"name" : "AvTestLogCrossMembraneHandler",
+	"type" : "normal"
+}
