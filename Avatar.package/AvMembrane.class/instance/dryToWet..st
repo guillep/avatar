@@ -1,4 +1,4 @@
-as yet unclassified
+handling
 dryToWet: anObject
 
 	| newProxy |

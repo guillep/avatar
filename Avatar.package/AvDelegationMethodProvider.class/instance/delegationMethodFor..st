@@ -8,7 +8,7 @@ delegationMethodFor: aMethod
 	delegationMethod nodesDo: [ :node | 
 		(node isVariable and: [ node isInstance ])
 			ifTrue: [
-				node parent isAssignment
+				(node parent isAssignment and: [ node parent variable = node ])
 					ifTrue: [ node parent replaceWith: (RBMessageNode
 																	receiver: (RBSelfNode named: 'self')
 																	selector: #instVarAt:put:

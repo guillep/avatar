@@ -1,4 +1,4 @@
-as yet unclassified
+handling
 inject: anObject
 
 	^ self wetToDry: anObject.
