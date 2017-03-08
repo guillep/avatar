@@ -1,0 +1,12 @@
+CGOProject {
+	#description : '',
+	#version : '0.1.0-dev',
+	#name : #Avatar-Project,
+	#repository : CGOGitRepository {
+		#repositoryUrl : 'https://github.com/guillep/avatar.git',
+		#subdirectory : ''
+	},
+	#unitNames : [
+		#Avatar
+	]
+}
