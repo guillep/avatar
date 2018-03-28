@@ -1,0 +1,1 @@
+This subclass of AvClassDelegationMessage only adds a new constrains, so #basicNew and #basicNew: is executed in the class proxy, and not in the real class.

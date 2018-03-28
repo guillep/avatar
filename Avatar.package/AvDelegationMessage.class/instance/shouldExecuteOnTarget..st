@@ -1,4 +1,4 @@
 sending
 shouldExecuteOnTarget: aMethod
 
-	^ { Object>>#instVarAt: . Object>>#instVarAt:put: } includes: aMethod
+	^ { Object>>#instVarAt: . Object>>#instVarAt:put: . ProtoObject>>#tryPrimitive:withArgs: } includes: aMethod
