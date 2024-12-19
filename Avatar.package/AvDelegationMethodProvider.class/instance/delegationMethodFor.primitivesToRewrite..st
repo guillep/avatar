@@ -6,7 +6,11 @@ delegationMethodFor: aMethod primitivesToRewrite: aBlock
 	| delegationMethod |
 	(aBlock value: aMethod) ifTrue: [ 
 		^ cache at: aMethod ifAbsentPut: [ self rewritePrimitive: aMethod ] ].
-	aMethod hasInstVarRef ifFalse: [ ^ aMethod ].
+
+	"If the method does not acccess instance variables, no rewrite is required"
+	((1 to: aMethod methodClass instSize)
+		anySatisfy: [ :idx | aMethod accessesField: idx ])
+			ifFalse: [ ^ aMethod ].
 
 
 	^ cache at: aMethod ifAbsentPut: [ 
